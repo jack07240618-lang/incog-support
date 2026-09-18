@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incog Support — Privacy-Focused Private Web Browser</title>
+  <meta name="description" content="Official technical support and FAQ for Incog, the privacy-focused private web browser for iOS.">
+  <meta name="theme-color" content="#0d0d0e">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg-primary: #0d0d0e;
+      --bg-card: #171719;
+      --bg-card-hover: #1f1f22;
+      --border: #26262a;
+      --border-focus: #4a4a52;
+      --text-primary: #f5f5f7;
+      --text-secondary: #9e9ea6;
+      --text-tertiary: #6b6b73;
+      --accent: #ffffff;
+      --accent-badge: #232327;
+      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .app-icon {
+      width: 68px;
+      height: 68px;
+      background: linear-gradient(145deg, #1c1c20, #101012);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .app-icon svg {
+      width: 36px;
+      height: 36px;
+      fill: none;
+      stroke: var(--text-primary);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .brand-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    /* Support Section Intro */
+    .support-intro {
+      margin-bottom: 40px;
+    }
+
+    .support-intro h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .support-intro p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-bottom: 56px;
+    }
+
+    .faq-heading {
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      margin-bottom: 20px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    details {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    details:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-focus);
+    }
+
+    details[open] {
+      border-color: var(--border-focus);
+      background: var(--bg-card);
+    }
+
+    summary {
+      list-style: none;
+      padding: 18px 22px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .chevron {
+      width: 18px;
+      height: 18px;
+      stroke: var(--text-secondary);
+      stroke-width: 2;
+      fill: none;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+
+    details[open] .chevron {
+      transform: rotate(180deg);
+    }
+
+    .answer {
+      padding: 0 22px 20px 22px;
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .answer p {
+      margin-bottom: 10px;
+    }
+
+    .answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .clarification-note {
+      font-size: 0.88rem;
+      color: var(--text-tertiary);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 10px 14px;
+      border-radius: 8px;
+      border-left: 3px solid var(--border-focus);
+      margin-top: 10px;
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: linear-gradient(180deg, #18181b 0%, #121214 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .contact-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .contact-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .email-badge {
+      display: inline-block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      background: #000000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 1px dashed #4e4e56;
+      text-decoration: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .email-badge:hover {
+      border-color: #8e8e96;
+      background: #141417;
+    }
+
+    /* Bottom Info & Nav */
+    .bottom-info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      margin-bottom: 24px;
+      font-size: 0.92rem;
+    }
+
+    .bottom-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .bottom-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .bottom-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .version-tag {
+      color: var(--text-tertiary);
+      background: var(--accent-badge);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 36px 18px 60px;
+      }
+      .brand-title {
+        font-size: 1.95rem;
+      }
+      .support-intro h2 {
+        font-size: 1.5rem;
+      }
+      summary {
+        font-size: 0.98rem;
+        padding: 16px 18px;
+      }
+      .answer {
+        padding: 0 18px 18px 18px;
+        font-size: 0.94rem;
+      }
+      .bottom-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Header -->
+    <header id="top">
+      <div class="app-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C8.5 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2.5-7-6-11z" />
+          <path d="M12 18a3 3 0 0 0 3-3c0-2-1.5-3.5-3-5-1.5 1.5-3 3-3 5a3 3 0 0 0 3 3z" />
+        </svg>
+      </div>
+      <h1 class="brand-title">Incog</h1>
+      <p class="tagline">Private browsing. Under your control.</p>
+    </header>
+
+    <!-- Support Intro -->
+    <main>
+      <section class="support-intro">
+        <h2>Incog Support</h2>
+        <p>Need help with Incog? Find answers to common questions below or contact us for support.</p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section" aria-label="Frequently Asked Questions">
+        <h3 class="faq-heading">Frequently Asked Questions</h3>
+        <div class="faq-list">
+
+          <!-- FAQ 1: How do I burn a tab? -->
+          <details>
+            <summary>
+              <span>How do I burn a tab?</span>
+              <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="answer">
+              <p>To burn an individual tab, open the tab switcher and tap the flame icon on the tab (or swipe to close it). Burning a tab immediately closes the page and clears its temporary session state on your device.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 2: What does "Burn All" do? -->
+          <details>
+            <summary>
+              <span>What does “Burn All” do?</span>
+              <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="answer">
+              <p>Tapping <strong>“Burn All”</strong> immediately closes all open tabs and purges the current session’s local browsing cache, cookies, and temporary data from your device, returning you to a clean start.</p>
+              <div class="clarification-note">
+                <strong>Notice:</strong> “Burn All” clears all local browsing artifacts stored on your device. It does not alter or erase network-level logs kept by websites you visit, Internet service providers, or public Wi-Fi networks.
+              </div>
+            </div>
+          </details>
+
+          <!-- FAQ 3: How does Face ID protection work? -->
+          <details>
+            <summary>
+              <span>How does Face ID protection work?</span>
+              <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="answer">
+              <p>When Face ID (or Touch ID / Passcode) authentication is enabled in Incog Settings, the app requires biometric verification whenever you launch Incog or return from the app switcher.</p>
+              <p>This ensures that even if someone else holds your unlocked iPhone, your private browsing session remains locked behind Apple’s Secure Enclave.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 4: How do I change my default search engine? -->
+          <details>
+            <summary>
+              <span>How do I change my default search engine?</span>
+              <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="answer">
+              <p>Open <strong>Incog Settings</strong> by tapping the settings gear icon, then select <strong>Search Engine</strong>. From there, you can choose your preferred provider (such as DuckDuckGo, Google, or other supported privacy-friendly search engines).</p>
+            </div>
+          </details>
+
+          <!-- FAQ 5: What should I do if a webpage does not load correctly? -->
+          <details>
+            <summary>
+              <span>What should I do if a webpage does not load correctly?</span>
+              <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="answer">
+              <p>If a webpage fails to display properly:</p>
+              <p>1. Tap the reload button in the address bar to refresh the page.</p>
+              <p>2. Verify that the URL is spelled correctly and your Wi-Fi or cellular network is connected.</p>
+              <p>3. Because Incog employs strict privacy controls to restrict intrusive trackers, certain websites that rely heavily on third-party tracking scripts may occasionally experience rendering issues. If the issue persists, feel free to contact us with the site URL so we can investigate compatibility.</p>
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-card">
+        <h3>Still need help?</h3>
+        <p class="contact-text">Still need help? Contact us at: evan07240618@gmail.com</p>
+        <a href="mailto:evan07240618@gmail.com" class="email-badge">evan07240618@gmail.com</a>
+      </section>
+
+      <!-- Privacy & Nav Links -->
+      <div class="bottom-info">
+        <nav class="bottom-links" aria-label="Support Navigation">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="#top">Support</a>
+        </nav>
+        <span class="version-tag">App Version 1.0</span>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Incog. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
